@@ -9,22 +9,22 @@
            "host": null
        },
        "remote-copy1": {
-           "file": "/home/onrack/files/RPM-GPG-KEY-CentOS-7"
+           "file": "/home/onrack/static/RPM-GPG-KEY-CentOS-7"
        },
        "remote-copy2": {
-           "file": "/home/onrack/files/RPM-GPG-KEY-ScaleIO_2.0.12000.122"
+           "file": "/home/onrack/static/RPM-GPG-KEY-ScaleIO_2.0.12000.122"
        },
        "remote-copy3": {
-           "file": "/home/onrack/files/libaio-0.3.109-12.el7.x86_64.rpm"
+           "file": "/home/onrack/static/libaio-0.3.109-12.el7.x86_64.rpm"
        },
        "remote-copy4": {
-           "file": "/home/onrack/files/EMC-ScaleIO-mdm-2.0-12000.122.el7.x86_64.rpm"
+           "file": "/home/onrack/static/EMC-ScaleIO-mdm-2.0-12000.122.el7.x86_64.rpm"
        },
        "remote-copy5": {
-           "file": "/home/onrack/files/EMC-ScaleIO-sdc-2.0-12000.122.el7.x86_64.rpm"
+           "file": "/home/onrack/static/EMC-ScaleIO-sdc-2.0-12000.122.el7.x86_64.rpm"
        },
        "remote-copy6": {
-           "file": "/home/onrack/files/EMC-ScaleIO-sds-2.0-12000.122.el7.x86_64.rpm"
+           "file": "/home/onrack/static/EMC-ScaleIO-sds-2.0-12000.122.el7.x86_64.rpm"
        },
        "remote-exec1": {
            "command": "rpm --import /tmp/RPM-GPG-KEY-CentOS-7"
