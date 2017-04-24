@@ -44,6 +44,55 @@
            }
         },
         {
+            "label": "run-diagnostics-mdm-master-graph",
+            "taskDefinition": {
+                "friendlyName": "Run Diagnostics MDM Master Graph",
+                "injectableName": "Task.Graph.Run.Diagnostics.Mdm.Master",
+                "implementsTask": "Task.Base.Graph.Run",
+                "options": {
+                    "graphName": "Graph.Run.Emc.Diag",
+                    "graphOptions": { }
+               },
+               "properties": {}
+           },
+           "waitOn": {
+               "update-firmware-mdm-master-graph": "succeeded"
+           }
+
+        },
+        {
+            "label": "run-diagnostics-mdm-standby-graph",
+            "taskDefinition": {
+                "friendlyName": "Run Diagnostics MDM Standby Graph",
+                "injectableName": "Task.Graph.Run.Diagnostics.Mdm.Standby",
+                "implementsTask": "Task.Base.Graph.Run",
+                "options": {
+                    "graphName": "Graph.Run.Emc.Diag",
+                    "graphOptions": { }
+               },
+               "properties": {}
+           },
+           "waitOn": {
+               "update-firmware-mdm-standby-graph": "succeeded"
+           }
+        },
+        {
+            "label": "run-diagnostics-tb-graph",
+            "taskDefinition": {
+                "friendlyName": "Run Diagnostics Tb Graph",
+                "injectableName": "Task.Graph.Run.Diagnostics.Tb",
+                "implementsTask": "Task.Base.Graph.Run",
+                "options": {
+                    "graphName": "Graph.Run.Emc.Diag",
+                    "graphOptions": { }
+               },
+               "properties": {}
+           },
+           "waitOn": {
+               "update-firmware-tb-graph": "succeeded"
+           }
+        },
+        {
             "label": "install-os-mdm-master-graph",
             "taskDefinition": {
                 "friendlyName": "Install OS MDM Master Graph",
@@ -56,7 +105,7 @@
                "properties": {}
            },
            "waitOn": {
-               "update-firmware-mdm-master-graph": "succeeded"
+               "run-diagnostics-mdm-master-graph": "succeeded"
            }
        },
        {
@@ -72,7 +121,7 @@
                "properties": {}
            },
            "waitOn": {
-               "update-firmware-mdm-standby-graph": "succeeded"
+               "run-diagnostics-mdm-standby-graph": "succeeded"
            }
 
        },
@@ -89,7 +138,7 @@
                "properties": {}
            },
            "waitOn": {
-               "update-firmware-tb-graph": "succeeded"
+               "run-diagnostics-tb-graph": "succeeded"
            }
 
        },
@@ -111,7 +160,7 @@
                "install-os-mdm-standby-graph": "succeeded",
                "install-os-tb-graph": "succeeded"
            }
-       },
+        },
         {
            "label": "install-mdm-standby-graph",
            "taskDefinition": {
@@ -143,7 +192,7 @@
           "waitOn": {
               "install-mdm-standby-graph": "succeeded"
           }
-      },
+       },
        {
            "label": "cluster-scaleio-3node-graph",
            "taskDefinition": {
