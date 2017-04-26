@@ -44,6 +44,57 @@
            }
         },
         {
+            "label": "secure-erase-master-graph",
+            "taskDefinition": {
+                "friendlyName": "Run Secure Erase on Master Graph",
+                "injectableName": "Task.Graph.Run.Secure.Erase.Master",
+                "implementsTask": "Task.Base.Graph.Run",
+                "options": {
+                    "graphName": "Graph.Drive.SecureErase",
+                    "graphOptions": { }
+               },
+               "properties": {}
+           },
+           "waitOn": {
+               "update-firmware-mdm-master-graph": "succeeded"
+           }
+
+        },
+        {
+            "label": "secure-erase-standby-graph",
+            "taskDefinition": {
+                "friendlyName": "Run Secure Erase on Standby Graph",
+                "injectableName": "Task.Graph.Run.Secure.Erase.Standby",
+                "implementsTask": "Task.Base.Graph.Run",
+                "options": {
+                    "graphName": "Graph.Drive.SecureErase",
+                    "graphOptions": { }
+               },
+               "properties": {}
+           },
+           "waitOn": {
+               "update-firmware-mdm-standby-graph": "succeeded"
+           }
+
+        },
+        {
+            "label": "secure-erase-tb-graph",
+            "taskDefinition": {
+                "friendlyName": "Run Secure Erase on Tb Graph",
+                "injectableName": "Task.Graph.Run.Secure.Erase.Tb",
+                "implementsTask": "Task.Base.Graph.Run",
+                "options": {
+                    "graphName": "Graph.Drive.SecureErase",
+                    "graphOptions": { }
+               },
+               "properties": {}
+           },
+           "waitOn": {
+               "update-firmware-mdm-tb-graph": "succeeded"
+           }
+
+        },
+        {
             "label": "run-diagnostics-mdm-master-graph",
             "taskDefinition": {
                 "friendlyName": "Run Diagnostics MDM Master Graph",
@@ -56,7 +107,7 @@
                "properties": {}
            },
            "waitOn": {
-               "update-firmware-mdm-master-graph": "succeeded"
+               "secure-erase-master-graph": "succeeded"
            }
 
         },
@@ -73,7 +124,7 @@
                "properties": {}
            },
            "waitOn": {
-               "update-firmware-mdm-standby-graph": "succeeded"
+               "secure-erase-standby-graph": "succeeded"
            }
         },
         {
@@ -89,7 +140,7 @@
                "properties": {}
            },
            "waitOn": {
-               "update-firmware-tb-graph": "succeeded"
+               "secure-erase-tb-graph": "succeeded"
            }
         },
         {
