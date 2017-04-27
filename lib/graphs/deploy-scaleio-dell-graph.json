@@ -5,10 +5,10 @@
     },
     "tasks": [
         {
-            "label": "update-firmware-mdm-master-graph",
+            "label": "update-firmware-master-graph",
             "taskDefinition": {
-                "friendlyName": "Update Firmware MDM Master Graph",
-                "injectableName": "Task.Graph.Run.Firmware.Mdm.Master.Update",
+                "friendlyName": "Update Firmware Master Graph",
+                "injectableName": "Task.Graph.Run.Firmware.Master.Update",
                 "implementsTask": "Task.Base.Graph.Run",
                 "options": {
                     "graphName": "Graph.Dell.Racadm.Update.Firmware",
@@ -18,10 +18,10 @@
            }
         },
         {
-            "label": "update-firmware-mdm-standby-graph",
+            "label": "update-firmware-standby-graph",
             "taskDefinition": {
-                "friendlyName": "Update Firmware MDM Standby Graph",
-                "injectableName": "Task.Graph.Run.Firmware.Mdm.Standby.Update",
+                "friendlyName": "Update Firmware Standby Graph",
+                "injectableName": "Task.Graph.Run.Firmware.Standby.Update",
                 "implementsTask": "Task.Base.Graph.Run",
                 "options": {
                     "graphName": "Graph.Dell.Racadm.Update.Firmware",
@@ -56,7 +56,7 @@
                "properties": {}
            },
            "waitOn": {
-               "update-firmware-mdm-master-graph": "succeeded"
+               "update-firmware-master-graph": "succeeded"
            }
 
         },
@@ -73,7 +73,7 @@
                "properties": {}
            },
            "waitOn": {
-               "update-firmware-mdm-standby-graph": "succeeded"
+               "update-firmware-standby-graph": "succeeded"
            }
 
         },
@@ -90,15 +90,15 @@
                "properties": {}
            },
            "waitOn": {
-               "update-firmware-mdm-tb-graph": "succeeded"
+               "update-firmware-tb-graph": "succeeded"
            }
 
         },
         {
-            "label": "run-diagnostics-mdm-master-graph",
+            "label": "run-diagnostics-master-graph",
             "taskDefinition": {
-                "friendlyName": "Run Diagnostics MDM Master Graph",
-                "injectableName": "Task.Graph.Run.Diagnostics.Mdm.Master",
+                "friendlyName": "Run Diagnostics Master Graph",
+                "injectableName": "Task.Graph.Run.Diagnostics.Master",
                 "implementsTask": "Task.Base.Graph.Run",
                 "options": {
                     "graphName": "Graph.Run.Emc.Diag",
@@ -112,10 +112,10 @@
 
         },
         {
-            "label": "run-diagnostics-mdm-standby-graph",
+            "label": "run-diagnostics-standby-graph",
             "taskDefinition": {
-                "friendlyName": "Run Diagnostics MDM Standby Graph",
-                "injectableName": "Task.Graph.Run.Diagnostics.Mdm.Standby",
+                "friendlyName": "Run Diagnostics Standby Graph",
+                "injectableName": "Task.Graph.Run.Diagnostics.Standby",
                 "implementsTask": "Task.Base.Graph.Run",
                 "options": {
                     "graphName": "Graph.Run.Emc.Diag",
@@ -144,10 +144,10 @@
            }
         },
         {
-            "label": "install-os-mdm-master-graph",
+            "label": "install-os-master-graph",
             "taskDefinition": {
-                "friendlyName": "Install OS MDM Master Graph",
-                "injectableName": "Task.Graph.Run.OS.Mdm.Master.Install",
+                "friendlyName": "Install OS Master Graph",
+                "injectableName": "Task.Graph.Run.OS.Master.Install",
                 "implementsTask": "Task.Base.Graph.Run",
                 "options": {
                     "graphName": "Graph.InstallCentOS",
@@ -156,14 +156,14 @@
                "properties": {}
            },
            "waitOn": {
-               "run-diagnostics-mdm-master-graph": "succeeded"
+               "run-diagnostics-master-graph": "succeeded"
            }
        },
        {
-            "label": "install-os-mdm-standby-graph",
+            "label": "install-os-standby-graph",
             "taskDefinition": {
-                "friendlyName": "Install OS MDM Standby Graph",
-                "injectableName": "Task.Graph.Run.OS.Mdm.Standby.Install",
+                "friendlyName": "Install OS Standby Graph",
+                "injectableName": "Task.Graph.Run.OS.Standby.Install",
                 "implementsTask": "Task.Base.Graph.Run",
                 "options": {
                     "graphName": "Graph.InstallCentOS",
@@ -172,7 +172,7 @@
                "properties": {}
            },
            "waitOn": {
-               "run-diagnostics-mdm-standby-graph": "succeeded"
+               "run-diagnostics-standby-graph": "succeeded"
            }
 
        },
@@ -207,8 +207,8 @@
            },
 
            "waitOn": {
-               "install-os-mdm-master-graph": "succeeded",
-               "install-os-mdm-standby-graph": "succeeded",
+               "install-os-master-graph": "succeeded",
+               "install-os-standby-graph": "succeeded",
                "install-os-tb-graph": "succeeded"
            }
         },
